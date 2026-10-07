@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamonwal's Cafe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f6f0;
+        }
+        header {
+            background-color: #4a2c2a;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        nav {
+            background-color: #36201e;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #e2b170;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #4a2c2a;
+            border-bottom: 2px solid #e2b170;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .menu-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        .menu-item h3 {
+            font-size: 1.1rem;
+            color: #4a2c2a;
+        }
+        .price {
+            color: #e2b170;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #4a2c2a;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kamonwal's Cafe</h1>
+        <p>ยินดีต้อนรับสู่คาเฟ่กาแฟสดและขนมหวานโฮมเมด</p>
+    </header>
+
+    <nav>
+        <a href="#menu">เมนูแนะนำ</a>
+        <a href="#hours">เวลาทำการ</a>
+        <a href="#location">ที่ตั้งร้าน</a>
+        <a href="#contact">ติดต่อเรา</a>
+    </nav>
+
+    <section id="menu">
+        <h2>เมนูแนะนำ (Menu)</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>Espresso Hot/Iced</h3>
+                <p class="price">60 - 70 THB</p>
+            </div>
+            <div class="menu-item">
+                <h3>Matcha Latte</h3>
+                <p class="price">75 THB</p>
+            </div>
+            <div class="menu-item">
+                <h3>Croissant Butter</h3>
+                <p class="price">85 THB</p>
+            </div>
+            <div class="menu-item">
+                <h3>Signature Cold Brew</h3>
+                <p class="price">90 THB</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hours">
+        <h2>เวลาเปิด-ปิด (Opening Hours)</h2>
+        <p><strong>จันทร์ - ศุกร์:</strong> 07:00 น. - 18:00 น.</p>
+        <p><strong>เสาร์ - อาทิตย์:</strong> 08:30 น. - 19:00 น.</p>
+    </section>
+
+    <section id="location">
+        <h2>ที่ตั้งร้าน (Location)</h2>
+        <p>123 ถนนพญาไท เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+    </section>
+
+    <section id="contact">
+        <h2>ติดต่อเรา (Contact)</h2>
+        <p><strong>โทรศัพท์:</strong> 081-234-5678</p>
+        <p><strong>Email:</strong> contact@kamonwalcafe.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kamonwal's Cafe. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
