@@ -2,147 +2,316 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-color=1.0">
-    <title>Kamolpol Cafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamolpol Cafe - Artisan Specialty Coffee</title>
+    <!-- นำเข้า Google Font ใหม่: Cinzel และ Mitr -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary: #2a2d34;        /* Charcoal Dark */
+            --amber: #c8963e;          /* Golden Amber */
+            --amber-light: #e6c587;    /* Soft Gold */
+            --bg: #f8f6f0;             /* Warm Warm White */
+            --card-bg: #ffffff;
+            --text-main: #1f2124;
+            --text-sub: #636874;
+            --shadow: 0 12px 30px rgba(42, 45, 52, 0.06);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Mitr', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             line-height: 1.6;
-            color: #2c3e50;
-            background-color: #f4f7f6;
         }
-        header {
-            background-color: #16a085;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+
+        /* Navigation */
         nav {
-            background-color: #117864;
+            position: sticky;
+            top: 0;
+            background-color: rgba(248, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            border-bottom: 1px solid rgba(200, 150, 62, 0.2);
+            z-index: 1000;
         }
-        nav a {
-            color: #fff;
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: bold;
+            letter-spacing: 1px;
         }
-        nav a:hover {
-            color: #f1c40f;
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
         }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(42, 45, 52, 0.65), rgba(42, 45, 52, 0.65)), 
+                        url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.4rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 550px;
+            color: var(--amber-light);
+        }
+
+        /* Section Global */
         section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 1050px;
+            margin: 70px auto;
+            padding: 0 20px;
         }
-        h2 {
-            color: #16a085;
-            border-bottom: 2px solid #f1c40f;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 2.1rem;
+            color: var(--primary);
+            margin-bottom: 45px;
+            letter-spacing: 1px;
         }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--amber);
+            margin: 12px auto 0;
+        }
+
+        /* Menu Section */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
         }
-        .menu-item {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fafafa;
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
         }
-        .menu-item h3 {
-            font-size: 1.1rem;
-            color: #16a085;
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(42, 45, 52, 0.1);
         }
+
+        .menu-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 22px;
+        }
+
+        .menu-info h3 {
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .menu-info p {
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            margin-bottom: 14px;
+            font-weight: 300;
+        }
+
         .price {
-            color: #d35400;
-            font-weight: bold;
+            color: var(--amber);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
+
+        /* Info Cards */
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 3px solid var(--amber);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .info-card p {
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 15px;
-            background-color: #16a085;
-            color: #fff;
-            margin-top: 20px;
+            padding: 35px;
+            background-color: var(--primary);
+            color: var(--amber-light);
+            margin-top: 90px;
+            font-size: 0.88rem;
+            font-weight: 300;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.3rem; }
+            .nav-links { gap: 12px; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Kamolpol Cafe</h1>
-        <p>ยินดีต้อนรับสู่คาเฟ่กาแฟสดและขนมหวานโฮมเมด</p>
-    </header>
-
+    <!-- Navigation -->
     <nav>
-        <a href="#menu">เมนูแนะนำ</a>
-        <a href="#hours">เวลาทำการ</a>
-        <a href="#location">ที่ตั้งร้าน</a>
-        <a href="#contact">ติดต่อเรา</a>
+        <a href="#" class="logo">KAMOLPOL</a>
+        <ul class="nav-links">
+            <li><a href="#menu">เมนูแนะนำ</a></li>
+            <li><a href="#hours">เวลาทำการ</a></li>
+            <li><a href="#location">ที่ตั้งร้าน</a></li>
+            <li><a href="#contact">ติดต่อเรา</a></li>
+        </ul>
     </nav>
 
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>KAMOLPOL CAFE</h1>
+        <p>สัมผัสสุนทรียภาพแห่งกาแฟพิเศษและขนมหวานในบรรยากาศส่วนตัว</p>
+    </div>
+
+    <!-- Menu Section -->
     <section id="menu">
-        <h2>เมนูแนะนำ (Menu)</h2>
+        <h2 class="section-title">OUR SELECTION</h2>
         <div class="menu-grid">
-            <div class="menu-item">
-                <h3>Espresso Hot/Iced</h3>
-                <p class="price">60 - 70 THB</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Espresso" class="menu-img">
+                <div class="menu-info">
+                    <h3>Artisan Espresso</h3>
+                    <p>เมล็ดกาแฟคั่วกลางให้โทนรสชาติช็อกโกแลตและผลไม้</p>
+                    <span class="price">70 THB</span>
+                </div>
             </div>
-            <div class="menu-item">
-                <h3>Matcha Latte</h3>
-                <p class="price">75 THB</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=500&q=80" alt="Latte" class="menu-img">
+                <div class="menu-info">
+                    <h3>Caffe Latte</h3>
+                    <p>เอสเพรสโซช็อตนุ่มนวลผสมนมสดแท้รสชาติกลมกล่อม</p>
+                    <span class="price">80 THB</span>
+                </div>
             </div>
-            <div class="menu-item">
-                <h3>Croissant Butter</h3>
-                <p class="price">85 THB</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Croissant" class="menu-img">
+                <div class="menu-info">
+                    <h3>Almond Croissant</h3>
+                    <p>ครัวซองต์สอบสดใหม่ โรยอัลมอนด์อบกรอบ</p>
+                    <span class="price">95 THB</span>
+                </div>
             </div>
-            <div class="menu-item">
-                <h3>Signature Cold Brew</h3>
-                <p class="price">90 THB</p>
-            </div>
-            <!-- สิ่งที่แก้ไขเพิ่มเข้ามาใหม่: เพิ่มเมนู Thai Tea Latte -->
-            <div class="menu-item">
-                <h3>Thai Tea Latte</h3>
-                <p class="price">70 THB</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" alt="Cold Brew" class="menu-img">
+                <div class="menu-info">
+                    <h3>Amber Cold Brew</h3>
+                    <p>กาแฟสกัดเย็นนาน 16 ชั่วโมง ให้ความสดชื่นดื่มง่าย</p>
+                    <span class="price">90 THB</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="hours">
-        <h2>เวลาเปิด-ปิด (Opening Hours)</h2>
-        <p><strong>จันทร์ - ศุกร์:</strong> 07:00 น. - 18:00 น.</p>
-        <p><strong>เสาร์ - อาทิตย์:</strong> 08:30 น. - 19:00 น.</p>
+    <!-- Info Section -->
+    <section>
+        <div class="info-container">
+            <div class="info-card" id="hours">
+                <h3>OPENING HOURS</h3>
+                <p><strong>จันทร์ - ศุกร์:</strong> 07:00 - 18:00 น.</p>
+                <p><strong>เสาร์ - อาทิตย์:</strong> 08:30 - 19:00 น.</p>
+            </div>
+
+            <div class="info-card" id="location">
+                <h3>LOCATION</h3>
+                <p>123 ถนนพญาไท เขตปทุมวัน</p>
+                <p>กรุงเทพมหานคร 10330</p>
+            </div>
+
+            <div class="info-card" id="contact">
+                <h3>CONTACT</h3>
+                <p><strong>Tel:</strong> 081-234-5678</p>
+                <p><strong>Email:</strong> contact@kamolpolcafe.com</p>
+            </div>
+        </div>
     </section>
 
-    <section id="location">
-        <h2>ที่ตั้งร้าน (Location)</h2>
-        <p>123 ถนนพญาไท เขตปทุมวัน กรุงเทพมหานคร 10330</p>
-    </section>
-
-    <section id="contact">
-        <h2>ติดต่อเรา (Contact)</h2>
-        <p><strong>โทรศัพท์:</strong> 081-234-5678</p>
-        <p><strong>Email:</strong> contact@kamolpolcafe.com</p>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Kamolpol Cafe. All rights reserved.</p>
+        <p>&copy; 2026 KAMOLPOL CAFE. ALL RIGHTS RESERVED.</p>
     </footer>
 
 </body>
